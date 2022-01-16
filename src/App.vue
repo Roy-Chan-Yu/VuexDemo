@@ -69,28 +69,22 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex';
+
 export default {
   name: 'App',
   data() {
     return {
-      // isLoading: false,
     };
   },
   methods: {
-    getCart() {
-      this.$store.dispatch('getCart');
-    },
     removeCart(id) {
       this.$store.dispatch('removeCart', id);
     },
+    ...mapActions(['getCart']),
   },
   computed: {
-    isLoading() {
-      return this.$store.state.isLoading;
-    },
-    cart() {
-      return this.$store.state.cart;
-    },
+    ...mapGetters(['cart', 'isLoading']),
   },
   created() {
     this.getCart();
