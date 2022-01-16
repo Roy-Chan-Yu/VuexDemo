@@ -8,15 +8,20 @@ import 'vue-loading-overlay/dist/vue-loading.min.css';
 import 'bootstrap';
 import App from './App';
 import router from './router';
+import Vuex from '../node_modules/vuex';
+import store from './store';
 
 Vue.config.productionTip = false;
 Vue.use(VueAxios, axios);
 Vue.component('Loading', Loading);
+Vue.use(Vuex);
+
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>',
 });
